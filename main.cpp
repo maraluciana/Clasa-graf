@@ -138,41 +138,41 @@ bool Graf::bellman_ford(int startNod, vector<int>& dist, list<pair<int, int> > *
     for(int i = 1; i <= nrNod; i++){
         dist[i] = INT_MAX;}
 
-	queue<int> q;
+    queue<int> q;
 
-	q.push(startNod);
-	in_queue[startNod] = 1;
+    q.push(startNod);
+    in_queue[startNod] = 1;
     dist[startNod] = 0;
 
 
-	while(!q.empty())
+    while(!q.empty())
     {
         int x = q.front();
         q.pop();
 
-		in_queue[x] = 0;
-		viz[x]++;
+	in_queue[x] = 0;
+	    viz[x]++;
 
-		if(viz[x] > nrNod)
+        if(viz[x] > nrNod)
             return false;
 
-		for(auto i : muchii_dij[x])
+    	for(auto i : muchii_dij[x])
         {
             int y = i.first;
             int cost = i.second;
 
-			if(dist[x] + cost < dist[y])
+            if(dist[x] + cost < dist[y])
             {
-				dist[y] = dist[x] + cost;
+                dist[y] = dist[x] + cost;
 
-				if(!in_queue[x])
-				{
-					q.push(y);
+                if(!in_queue[x])
+                {
+                    q.push(y);
                     in_queue[y] = 1;
                 }
-			}
-		}
-	}
+            }
+        }
+    }
 
     return true;
 }
@@ -226,7 +226,7 @@ void Graf::init(vector<int>& tata,vector<int>& dim)
 int Graf::reprez(int x, vector<int>& tata)
 {
 	if(tata[x] == x)
-        return x;
+            return x;
 	return reprez(tata[x], tata);
 }
 
@@ -235,7 +235,7 @@ void Graf::unite(int x,int y,vector<int>& tata,vector<int>& dim, vector<pair <in
 	int repx = reprez(x, tata), repy = reprez(y, tata);
 
 	if (repx == repy)
-        return;
+            return;
 	if (dim[repx] >= dim[repy])
 	{
 		tata[repy] = repx;
@@ -256,12 +256,12 @@ void Graf::apm_kruskall(int& cost, vector<pair<int, pair<int, int>>>& muchii_cos
 {
     init(tata, dim);
 
-	sort(muchii_cost.begin(), muchii_cost.end());
+    sort(muchii_cost.begin(), muchii_cost.end());
 
-	for(auto m : muchii_cost)
+    for(auto m : muchii_cost)
     {
-		if(reprez(m.second.first, tata) != reprez(m.second.second, tata))
-		{
+        if(reprez(m.second.first, tata) != reprez(m.second.second, tata))
+        {
             unite(m.second.first, m.second.second, tata, dim, muchii_apm);
             cost += m.first;
         }
@@ -1090,8 +1090,6 @@ int main()
         default:
             cout << "Trebuie un numar din lista :(" << endl;
     }
-
-    p.ciclueulerian_infoarena();
 
     fin.close();
     fout.close();
