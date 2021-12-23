@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1640263334 source:c:\users\mara\desktop\facultate anu 2\dfsdfs\main.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<queue>
+	<vector>
+	<utility>
+	<bits/stdc++.h>
+
