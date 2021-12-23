@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1640258157 source:c:\users\mara\desktop\facultate anu 2\af\graf-5\main.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<queue>
+	<vector>
+	<utility>
+	<bits/stdc++.h>
+
